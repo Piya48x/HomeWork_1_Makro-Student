@@ -9,11 +9,11 @@ exports.register = async (req, res, next) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return createError(400, "Enail and password are required");
+      return createError(400, "Email and password are required");
     }
 
     if (typeof email !== "string" || typeof password !== "string") {
-      return createError(400, "Email or password in invalid");
+      return createError(400, "Email or password is invalid");
     }
 
     const isUserExist = await userService.getUserByEmail(email);
@@ -37,7 +37,7 @@ exports.login = async (req, res, next) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return createError(400, "Email and password are requierd");
+      return createError(400, "Email and password are required");
     }
 
     if (typeof email !== "string" || typeof password !== "string") {
